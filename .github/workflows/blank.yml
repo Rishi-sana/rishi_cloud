@@ -1,5 +1,4 @@
 name: Build and Deploy
-
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +10,7 @@ on:
         required: true
       xref:
         type: string
-        required: true
+        required: false
       ciWorkerType:
         type: choice
         required: true
@@ -33,6 +32,7 @@ on:
           - 4
           - 5
           - 6
+run-name: ${{ github.workflow }} - ${{ inputs.application }} -> Sandbox to dev
 
 jobs:
     build:
@@ -65,7 +65,6 @@ jobs:
           with:
               name: artifacts
               path: target/*.jar
-
     deploy:
         needs: build
         runs-on: ubuntu-latest
@@ -86,13 +85,12 @@ jobs:
           run: |
             artifactName=$(ls *.jar | head -1)
             mvn deploy -DskipMunitTests -DmuleDeploy \
-	     -Dmule.artifact=$artifactName 
-      #        -Dcli.ClientId=f44ba12c6ec74fa1b205b471e62620de \
-      #        -Dcli.ClientSecret=88fAD6D8c108413B95C80C722DdFA224 \
-	     # -Dcl.env.name=dev \
-	     # -Dcl.app.name=${{ inputs.application }}-dev \
-	     # -Dcl.region=us-east-1 \
-	     # -Dcl.workers=${{ inputs.ciWorker }} \
-      #        -Dcl.worker.type=${{ inputs.ciWorkerType }} \
-	     # -Dcl.businessGroup=auropro
-             
+             -Dmule.artifact=$artifactName \
+             -Dcli.ClientId=f44ba12c6ec74fa1b205b471e62620de \
+             -Dcli.ClientSecret=88fAD6D8c108413B95C80C722DdFA224 \
+             -Dcl.env.name=dev \
+             -Dcl.app.name=${{ inputs.application }} \
+             -Dcl.region=us-east-1 \
+             -Dcl.workers=${{ inputs.ciWorker }} \
+             -Dcl.worker.type=${{ inputs.ciWorkerType }} \
+             -Dcl.businessGroup=auropro 
