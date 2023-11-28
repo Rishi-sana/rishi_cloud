@@ -11,7 +11,7 @@ on:
         required: true
       xref:
         type: string
-        required: true
+        required: false
       ciWorkerType:
         type: choice
         required: true
@@ -33,6 +33,7 @@ on:
           - 4
           - 5
           - 6
+
 
 jobs:
     build:
@@ -86,7 +87,8 @@ jobs:
           run: |
             artifactName=$(ls *.jar | head -1)
             mvn deploy -DskipMunitTests -DmuleDeploy \
-	     -Dmule.artifact=$artifactName \
+             -Dmule.artifact=$artifactName \
              -Dcli.ClientId=f44ba12c6ec74fa1b205b471e62620de \
              -Dcli.ClientSecret=88fAD6D8c108413B95C80C722DdFA224
+             
              
