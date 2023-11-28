@@ -1,8 +1,38 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      application:
+        type: string
+        required: true
+      featureBranch:
+        type: string
+        required: true
+      xref:
+        type: string
+        required: true
+      ciWorkerType:
+        type: choice
+        required: true
+        description: Size of the worker(s) Micro (0.1 vCores), Small (0.2 vCores), Medium (1 vCores), Large (2 vCores), xLarge (4 vCores)
+        options:
+          - Micro
+          - Small
+          - Medium
+          - Large
+          - xLarge
+      ciWorker:
+        type: choice
+        required: true
+        description: Number of workers
+        options:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
 
 jobs:
     build:
@@ -56,8 +86,5 @@ jobs:
           run: |
             artifactName=$(ls *.jar | head -1)
             mvn deploy -DskipMunitTests -DmuleDeploy \
-             -Dmule.artifact=$artifactName \
-             -Dcli.ClientId=f44ba12c6ec74fa1b205b471e62620de \
-             -Dcli.ClientSecret=88fAD6D8c108413B95C80C722DdFA224
-             
+             -Dmule.artifact=$artifactName 
              
