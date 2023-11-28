@@ -29,16 +29,16 @@
                         <connectedAppClientId>${cli.ClientId}</connectedAppClientId>
                         <connectedAppClientSecret>${cli.ClientSecret}</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
-                        <businessGroup>auropro</businessGroup>
+                        <businessGroup>${cl.businessGroup}</businessGroup>
                         <!--  			<username>NaveenKumarC</username><password>
                         <![CDATA[AuroProMission@2022
     ]
 ]></password>  -->
-                        <applicationName>rishi</applicationName>
-                        <environment>Sandbox</environment>
-                        <workerType>MICRO</workerType>
-                        <region>us-east-2</region>
-                        <workers>1</workers>
+                        <applicationName>${cl.app.name}</applicationName>
+                        <environment>${cl.env.name}</environment>
+                        <workerType>${cl.worker.type}</workerType>
+                        <region>${cl.region}</region>
+                        <workers>${cl.workers}</workers>
                         <objectStoreV2>true</objectStoreV2>
                     </cloudHubDeployment>
                 </configuration>
