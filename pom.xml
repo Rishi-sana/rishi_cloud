@@ -35,8 +35,8 @@
                     <cloudHubDeployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <muleVersion>4.4.0</muleVersion>
-			<connectedAppClientId>${client.id}</connectedAppClientId>
-			<connectedAppClientSecret>${client.secret}</connectedAppClientSecret>
+			<connectedAppClientId>f44ba12c6ec74fa1b205b471e62620de</connectedAppClientId>
+			<connectedAppClientSecret>88fAD6D8c108413B95C80C722DdFA224</connectedAppClientSecret>
                         <applicationName>rishi-cloud</applicationName>
                         <environment>Sandbox</environment>
                         <workerType>MICRO</workerType>
