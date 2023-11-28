@@ -33,7 +33,7 @@ on:
           - 4
           - 5
           - 6
-
+run-name: ${{ github.workflow }} - ${{ inputs.application }} -> Sandbox to dev
 
 jobs:
     build:
