@@ -37,7 +37,7 @@
 <!-- 			<connectedAppClientId>f44ba12c6ec74fa1b205b471e62620de</connectedAppClientId>
 			<connectedAppClientSecret>88fAD6D8c108413B95C80C722DdFA224</connectedAppClientSecret>
 			<connectedAppGrantType>client_credentials</connectedAppGrantType> -->
-			<businessGroup>auropro</businessGroup>
+			<businessGroup>auropro_assets</businessGroup>
 <!-- 			<username>NaveenKumarC</username>
         		<password><![CDATA[AuroProMission@2022]]></password> -->
                         <applicationName>rishi-cloud</applicationName>
