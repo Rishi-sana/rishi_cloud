@@ -11,7 +11,7 @@ on:
         required: true
       xref:
         type: string
-        required: true
+        required: false
       ciWorkerType:
         type: choice
         required: true
