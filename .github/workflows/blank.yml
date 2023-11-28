@@ -95,7 +95,5 @@ jobs:
              -Dcl.region=us-east-1 \
              -Dcl.workers=${{ inputs.ciWorker }} \
              -Dcl.worker.type=${{ inputs.ciWorkerType }} \
-             -Dcl.businessGroup=auropro
-      	  
-             
+             -Dcl.businessGroup=auropro 
              
